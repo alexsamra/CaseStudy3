@@ -10,6 +10,7 @@
 library(shiny)
 library(bslib)
 library(cluster)
+library(readr)
 
 # UI
 ui <- page_sidebar(
@@ -57,7 +58,8 @@ ui <- page_sidebar(
   mainPanel(
     plotOutput("clusterPlot"),
     tableOutput("clusterCenters"),
-    tableOutput("clusterSizes")
+    tableOutput("clusterSizes"),
+    tableOutput("clusterSongs")
   )
 )
 
@@ -65,7 +67,7 @@ ui <- page_sidebar(
 server <- function(input, output) {
   
   # Load Spotify data
-  df <- read.csv("spotify-2023.csv")
+  df <- read_csv("spotify-2023.csv", locale = locale(encoding = "latin1"))
   
   # Fix column names
   names(df) <- make.names(names(df))
@@ -112,6 +114,18 @@ server <- function(input, output) {
   # Show cluster sizes
   output$clusterSizes <- renderTable({
     table(km()$cluster)
+  })
+  
+  # Show cluster songs
+  output$clusterSongs <- renderTable({
+    req(km())
+    
+    results <- data.frame(
+      Track = df$track_name,
+      Cluster = km()$cluster
+    )
+    
+    results[order(results$Cluster), ]
   })
 }
 

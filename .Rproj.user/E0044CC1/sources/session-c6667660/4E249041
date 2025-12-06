@@ -3,7 +3,7 @@
     "path": "~/Desktop/All/CS/DS/CaseStudy3_AlexanderSamra/app.R",
     "project_path": "app.R",
     "type": "r_source",
-    "hash": "3434764773",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1764903224162.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "81,23",
-        "scrollLine": "62"
+        "cursorPosition": "74,43",
+        "scrollLine": "58"
     },
     "folds": "",
-    "lastKnownWriteTime": 1765054806,
+    "lastKnownWriteTime": 1765059595,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1765054806500,
+    "last_content_update": 1765059595688,
     "read_only": false,
     "read_only_alternatives": []
 }
